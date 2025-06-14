@@ -1,0 +1,6 @@
+@dockerize_aspNetCore_jwt_api_HostAddress = http://localhost:5271
+
+GET {{dockerize_aspNetCore_jwt_api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
