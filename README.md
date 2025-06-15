@@ -8,9 +8,9 @@ This is a simple ASP.NET Core Web API project that demonstrates:
 - 🌐 Swagger UI for API testing
 
 ---
-
 ## 📂 Project Structure
 
+```yaml
 dockerize-aspNetCore-jwt-api/
 ├── Controllers/
 │   ├── AuthController.cs
@@ -26,6 +26,7 @@ dockerize-aspNetCore-jwt-api/
 ├── Program.cs
 ├── Dockerfile
 └── README.md
+```
 
 
 
@@ -50,50 +51,65 @@ docker build -t jwt-api .
 docker run -p 3000:80 jwt-api
 ```
 
-Visit Swagger UI at:
-👉 http://localhost:3000/swagger
+> Visit Swagger UI at:  
+> 👉 **http://localhost:3000/swagger**
 
-🔐 JWT Authentication Flow
-Register a user
-POST /api/auth/register
+---
 
-Login
-POST /api/auth/login
-✅ Returns a JWT token
+## 🔐 JWT Authentication Flow
 
-Use token in Swagger
+1. **Register a user**  
+   `POST /api/auth/register`
 
-Click "Authorize" on Swagger UI
+2. **Login**  
+   `POST /api/auth/login`  
+   ✅ Returns a **JWT token**
 
-Enter Bearer <your_token>
+3. **Use token in Swagger**  
+   - Click **"Authorize"** on Swagger UI
+   - Enter `Bearer <your_token>`
 
+---
 
+## 🧪 API Endpoints
 
+### 🛂 Authentication
 
-🧪 API Endpoints
+| Method | Endpoint              | Body                        |
+|--------|-----------------------|-----------------------------|
+| POST   | `/api/auth/register`  | `{ "username": "", "password": "" }` |
+| POST   | `/api/auth/login`     | `{ "username": "", "password": "" }` |
 
-🛂 Authentication
-Method	Endpoint	Body
-POST	/api/auth/register	{ "username": "", "password": "" }
-POST	/api/auth/login	{ "username": "", "password": "" }
+### 📦 Products (🔒 Requires JWT)
 
-📦 Products (🔒 Requires JWT)
-Method	Endpoint	Description
-GET	/api/products	Get all products
-GET	/api/products/1	Get product by ID
-POST	/api/products	Add a new product
-PUT	/api/products/1	Update product
-DELETE	/api/products/1	Delete product
+| Method | Endpoint         | Description        |
+|--------|------------------|--------------------|
+| GET    | `/api/products`  | Get all products   |
+| GET    | `/api/products/1`| Get product by ID  |
+| POST   | `/api/products`  | Add a new product  |
+| PUT    | `/api/products/1`| Update product     |
+| DELETE | `/api/products/1`| Delete product     |
 
-📌 Notes
-All product data is stored in-memory and is lost when the app stops.
+---
 
-JWT secret key is configured in Program.cs.
+## 📌 Notes
 
-🙌 Author
-Jervie Marquez
-GitHub Profile
+- All product data is stored **in-memory** and is lost when the app stops.
+- JWT secret key is configured in `Program.cs`.
+
+---
+
+## 🙌 Author
+
+**Jervie Marquez**  
+[GitHub Profile](https://github.com/jerviechronix)  
 📫 Feel free to fork or star this project!
+
+---
+
+## 📝 License
+
+MIT — free to use for learning, demo, and personal projects.
 
 
 
